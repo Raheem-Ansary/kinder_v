@@ -101,9 +101,9 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'kinder_db',
-        'USER': 'raheem',
-        'PASSWORD': 'Zehnepoya@1234#',
-        'HOST': 'localhost',   
+        'USER': 'root',
+        'PASSWORD': 'Zehnepoya123@',
+        'HOST': 'localhost',
         'PORT': '3306',
          'OPTIONS': {
             'charset': 'utf8mb4',
