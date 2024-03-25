@@ -5,5 +5,6 @@ app_name = 'home'
 
 urlpatterns = [
 
-    path('', views.HomeView.as_view(), name='home')
+    path('', views.get_context_data, name='home'),
+   
 ]

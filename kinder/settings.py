@@ -12,6 +12,10 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 
 from pathlib import Path
 
+import pymysql
+
+pymysql.install_as_MySQLdb()
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -80,14 +84,32 @@ WSGI_APPLICATION = 'kinder.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
-DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.mysql",
-        "HOST": "127.0.0.1",
-        "NAME": "kinder_db",
-        "USER": "raheem",
-        "PASSWORD": "Zehnepoya@1234#",
+# DATABASES = {
+#     "default": {
+#         "ENGINE": "django.db.backends.mysql",
+#         "HOST": "127.0.0.1",
+#         "NAME": "kinder_db",
+#         "USER": "raheem",
+#         "PASSWORD": "Zehnepoya@1234#",
         
+#     }
+# }
+
+
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'kinder_db',
+        'USER': 'raheem',
+        'PASSWORD': 'Zehnepoya@1234#',
+        'HOST': 'localhost',   
+        'PORT': '3306',
+         'OPTIONS': {
+            'charset': 'utf8mb4',
+            'sql_mode': 'traditional',
+            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'"
+        }
     }
 }
 
@@ -126,7 +148,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
 
 
 MEDIA_ROOT = BASE_DIR / 'uploads'
