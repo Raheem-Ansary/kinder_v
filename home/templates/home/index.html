@@ -5,16 +5,19 @@
 
 {%block content%}
   <!-- Carousel Start -->
+  <h1>{{gal}}</h1>
+    
   <div class="container-fluid p-0 mb-5">
     <div class="owl-carousel header-carousel position-relative">
+        {% for slider in sliders %}
         <div class="owl-carousel-item position-relative">
-            <img class="img-fluid" src="/static/img/carousel-1.jpg" alt="">
+            <img class="img-fluid" src="{{ slider.image.url }}" alt="">
             <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center" style="background: rgba(0, 0, 0, .2);">
                 <div class="container">
                     <div class="row justify-content-start">
                         <div class="col-10 col-lg-8">
-                            <h1 class="display-2 text-white animated slideInDown mb-4">بهترین مدرسه کودکانه برای فرزند شما</h1>
-                            <p class="fs-5 fw-medium text-white mb-4 pb-2">ورو الیتر جستو کلیتا لورم. ایپسوم دولور ات سد استت سیت دیام نو. کاسد ربوم ایپسوم ات دیام جستو کلیتا ات کاسد ربوم سئا الیتر.</p>
+                            <h1 class="display-2 text-white animated slideInDown mb-4">{{ slider.title }}</h1>
+                            <p class="fs-5 fw-medium text-white mb-4 pb-2">{{ slider.description }}</p>
                             <a href="" class="btn btn-primary rounded-pill py-sm-3 px-sm-5 me-3 animated slideInLeft">بیشتر بدانید</a>
                             <a href="" class="btn btn-dark rounded-pill py-sm-3 px-sm-5 animated slideInRight">کلاس‌های ما</a>
                         </div>
@@ -22,24 +25,10 @@
                 </div>
             </div>
         </div>
-        <div class="owl-carousel-item position-relative">
-            <img class="img-fluid" src="/static/img/carousel-2.jpg" alt="">
-            <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center" style="background: rgba(0, 0, 0, .2);">
-                <div class="container">
-                    <div class="row justify-content-start">
-                        <div class="col-10 col-lg-8">
-                            <h1 class="display-2 text-white animated slideInDown mb-4">آینده روشن‌تری برای فرزندتان بسازید</h1>
-                            <p class="fs-5 fw-medium text-white mb-4 pb-2">ورو الیتر جستو کلیتا لورم. ایپسوم دولور ات سد استت سیت دیام نو. کاسد ربوم ایپسوم ات دیام جستو کلیتا ات کاسد ربوم سئا الیتر.</p>
-                            <a href="" class="btn btn-primary rounded-pill py-sm-3 px-sm-5 me-3 animated slideInLeft">بیشتر بدانید</a>
-                            <a href="" class="btn btn-dark rounded-pill py-sm-3 px-sm-5 animated slideInRight">کلاس‌های ما</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        {% endfor %}
     </div>
 </div>
-<!-- Carousel End -->
+<!-- Carousel End --> 
 
 
 
@@ -112,11 +101,11 @@
 <!-- About Start -->
 <div class="container-xxl py-5">
     <div class="container">
+        {% for banner in banners %}
         <div class="row g-5 align-items-center">
             <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s" style="direction: rtl;">
                 <h1 class="mb-4">اطلاعات بیشتر درباره کارهای ما و فعالیت‌های فرهنگی ما بدانید</h1>
-                <p>Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo magna dolore erat amet</p>
-                <p class="mb-4">Stet no et lorem dolor et diam, amet duo ut dolore vero eos. No stet est diam rebum amet diam ipsum. Clita clita labore, dolor duo nonumy clita sit at, sed sit sanctus dolor eos, ipsum labore duo duo sit no sea diam. Et dolor et kasd ea. Eirmod diam at dolor est vero nonumy magna.</p>
+                <p class="mb-4">{{banner.description}}</p>
                 <div class="row g-4 align-items-center">
                     <div class="col-sm-6">
                         <a class="btn btn-primary rounded-pill py-3 px-5" href="">بیشتر بخوانید</a>
@@ -134,18 +123,21 @@
             </div>
             <div class="col-lg-6 about-img wow fadeInUp" data-wow-delay="0.5s">
                 <div class="row">
+                    
                     <div class="col-12 text-center">
-                        <img class="img-fluid w-75 rounded-circle bg-light p-3" src="/static/img/about-1.jpg" alt="">
+                        <img class="img-fluid w-75 rounded-circle bg-light p-3" src="{{banner.first_image.url}}" alt="">
                     </div>
                     <div class="col-6 text-start" style="margin-top: -150px;">
-                        <img class="img-fluid w-100 rounded-circle bg-light p-3" src="/static/img/about-2.jpg" alt="">
+                        <img class="img-fluid w-100 rounded-circle bg-light p-3" src="{{banner.second_image.url}}" alt="">
                     </div>
                     <div class="col-6 text-end" style="margin-top: -150px;">
-                        <img class="img-fluid w-100 rounded-circle bg-light p-3" src="/static/img/about-3.jpg" alt="">
+                        <img class="img-fluid w-100 rounded-circle bg-light p-3" src="{{banner.therd_image.url}}" alt="">
                     </div>
+                    
                 </div>
             </div>
         </div>
+        {% endfor %}
     </div>
 </div>
 <!-- About End -->
@@ -329,6 +321,7 @@
                                     <small>3-5 سال</small>
                                 </div>
                             </div>
+                         
                             <div class="col-4">
                                 <div class="border-top border-3 border-success pt-2">
                                     <h6 class="text-success mb-1">زمان:</h6>
@@ -346,10 +339,10 @@
                 </div>
             </div>
             
-            {% comment %} <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s" style="direction: rtl;">
+             <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s" style="direction: rtl;">
                 <div class="classes-item">
                     <div class="bg-light rounded-circle w-75 mx-auto p-3">
-                        <img class="img-fluid rounded-circle" src="/static/static//img/classes-5.jpg" alt="">
+                        <img class="img-fluid rounded-circle" src="/static/img/classes-5.jpg" alt="">
                     </div>
                     <div class="bg-light rounded p-4 pt-5 mt-n5">
                         <a class="d-block text-center h3 mt-3 mb-4" href="">مذهب و تاریخ</a>
@@ -385,7 +378,7 @@
                         </div>
                     </div>
                 </div>
-            </div> {% endcomment %}
+            </div> 
             
             <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s" style="direction: rtl;">
                 <div class="classes-item">

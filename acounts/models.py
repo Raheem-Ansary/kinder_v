@@ -9,11 +9,14 @@ from .managers import UserManager
 class User(AbstractBaseUser):
     full_name = models.CharField(max_length=20, verbose_name='نام و نام خوانوادگی')
     phone_number = models.CharField(max_length=11, unique=True, verbose_name='شماره موبایل')
-    email = models.EmailField(max_length=100, unique=True)
-    is_admin = models.BooleanField(default=False)
+    email = models.EmailField(max_length=100, unique=True, verbose_name='ایمیل')
+    is_admin = models.BooleanField(default=False, verbose_name='حالت ادمین')
 
     objects = UserManager()
 
+    class Meta:
+        verbose_name = 'یوزر'
+        verbose_name_plural = 'یوزر ها'
 
     USERNAME_FIELD = 'phone_number'
     REQUIRED_FIELDS = ['email', 'full_name']
