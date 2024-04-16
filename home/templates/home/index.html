@@ -1,12 +1,25 @@
 {% extends 'base.html' %}
 
 
-  
 
 {%block content%}
+
+
+
+{% if messages %}
+<div class="alert alert-success" role="alert">
+    {% for message in messages %}
+        <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+</div>
+{% endif %} 
+
+
+
+
+
+
   <!-- Carousel Start -->
-  <h1>{{gal}}</h1>
-    
   <div class="container-fluid p-0 mb-5">
     <div class="owl-carousel header-carousel position-relative">
         {% for slider in sliders %}
@@ -177,18 +190,19 @@
             <p>Eirmod sed ipsum dolor sit rebum labore magna erat. Tempor ut dolore lorem kasd vero ipsum sit eirmod sit. Ipsum diam justo sed rebum vero dolor duo.</p>
         </div>                
         <div class="row g-4">
+            {% for class_item in classes %}
             <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s" style="direction: rtl;">
                 <div class="classes-item">
                     <div class="bg-light rounded-circle w-75 mx-auto p-3">
-                        <img class="img-fluid rounded-circle" src="/static/img/classes-1.jpg" alt="">
+                        <img class="img-fluid rounded-circle" src="{{ class_item.image_class.url }}" alt="">
                     </div>
                     <div class="bg-light rounded p-4 pt-5 mt-n5">
-                        <a class="d-block text-center h3 mt-3 mb-4" href="">هنر و نقاشی</a>
+                        <a class="d-block text-center h3 mt-3 mb-4" href="">{{ class_item.class_name }}</a>
                         <div class="d-flex align-items-center justify-content-between mb-4">
                             <div class="d-flex align-items-center">
-                                <img class="rounded-circle flex-shrink-0" src="/static/img/user.jpg" alt="" style="width: 45px; height: 45px;">
+                                <img class="rounded-circle flex-shrink-0" src="{{ class_item.tech_image.url }}" alt="" style="width: 45px; height: 45px;">
                                 <div class="ms-3">
-                                    <h6 class="text-primary mb-1">جان دو</h6>
+                                    <h6 class="text-primary mb-1">{{ class_item.tech_name }}</h6>
                                     <small>معلم</small>
                                 </div>
                             </div>
@@ -198,229 +212,26 @@
                             <div class="col-4">
                                 <div class="border-top border-3 border-primary pt-2">
                                     <h6 class="text-primary mb-1">سن:</h6>
-                                    <small>3-5 سال</small>
+                                    <small>{{ class_item.Childrens_age }}</small>
                                 </div>
                             </div>
                             <div class="col-4">
                                 <div class="border-top border-3 border-success pt-2">
                                     <h6 class="text-success mb-1">زمان:</h6>
-                                    <small>9-10 صبح</small>
+                                    <small>{{ class_item.time_class }}</small>
                                 </div>
                             </div>
                             <div class="col-4">
                                 <div class="border-top border-3 border-warning pt-2">
                                     <h6 class="text-warning mb-1">ظرفیت:</h6>
-                                    <small>۳۰ کودک</small>
+                                    <small>{{ class_item.capacity_class }}</small>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s" style="direction: rtl;">
-                <div class="classes-item">
-                    <div class="bg-light rounded-circle w-75 mx-auto p-3">
-                        <img class="img-fluid rounded-circle" src="/static/img/classes-2.jpg" alt="">
-                    </div>
-                    <div class="bg-light rounded p-4 pt-5 mt-n5">
-                        <a class="d-block text-center h3 mt-3 mb-4" href="">مدیریت رنگ</a>
-                        <div class="d-flex align-items-center justify-content-between mb-4">
-                            <div class="d-flex align-items-center">
-                                <img class="rounded-circle flex-shrink-0" src="/static/img/user.jpg" alt="" style="width: 45px; height: 45px;">
-                                <div class="ms-3">
-                                    <h6 class="text-primary mb-1">جان دو</h6>
-                                    <small>معلم</small>
-                                </div>
-                            </div>
-                            <span class="bg-primary text-white rounded-pill py-2 px-3" href="">۹۹ دلار</span>
-                        </div>
-                        <div class="row g-1">
-                            <div class="col-4">
-                                <div class="border-top border-3 border-primary pt-2">
-                                    <h6 class="text-primary mb-1">سن:</h6>
-                                    <small>3-5 سال</small>
-                                </div>
-                            </div>
-                            <div class="col-4">
-                                <div class="border-top border-3 border-success pt-2">
-                                    <h6 class="text-success mb-1">زمان:</h6>
-                                    <small>9-10 صبح</small>
-                                </div>
-                            </div>
-                            <div class="col-4">
-                                <div class="border-top border-3 border-warning pt-2">
-                                    <h6 class="text-warning mb-1">ظرفیت:</h6>
-                                    <small>۳۰ کودک</small>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s" style="direction: rtl;">
-                <div class="classes-item">
-                    <div class="bg-light rounded-circle w-75 mx-auto p-3">
-                        <img class="img-fluid rounded-circle" src="/static/img/classes-3.jpg" alt="">
-                    </div>
-                    <div class="bg-light rounded p-4 pt-5 mt-n5">
-                        <a class="d-block text-center h3 mt-3 mb-4" href="">ورزشی و رقص</a>
-                        <div class="d-flex align-items-center justify-content-between mb-4">
-                            <div class="d-flex align-items-center">
-                                <img class="rounded-circle flex-shrink-0" src="/static/img/user.jpg" alt="" style="width: 45px; height: 45px;">
-                                <div class="ms-3">
-                                    <h6 class="text-primary mb-1">جان دو</h6>
-                                    <small>معلم</small>
-                                </div>
-                            </div>
-                            <span class="bg-primary text-white rounded-pill py-2 px-3" href="">۹۹ دلار</span>
-                        </div>
-                        <div class="row g-1">
-                            <div class="col-4">
-                                <div class="border-top border-3 border-primary pt-2">
-                                    <h6 class="text-primary mb-1">سن:</h6>
-                                    <small>3-5 سال</small>
-                                </div>
-                            </div>
-                            <div class="col-4">
-                                <div class="border-top border-3 border-success pt-2">
-                                    <h6 class="text-success mb-1">زمان:</h6>
-                                    <small>9-10 صبح</small>
-                                </div>
-                            </div>
-                            <div class="col-4">
-                                <div class="border-top border-3 border-warning pt-2">
-                                    <h6 class="text-warning mb-1">ظرفیت:</h6>
-                                    <small>۳۰ کودک</small>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s" style="direction: rtl;">
-                <div class="classes-item">
-                    <div class="bg-light rounded-circle w-75 mx-auto p-3">
-                        <img class="img-fluid rounded-circle" src="/static/img/classes-4.jpg" alt="">
-                    </div>
-                    <div class="bg-light rounded p-4 pt-5 mt-n5">
-                        <a class="d-block text-center h3 mt-3 mb-4" href="">زبان و صحبت</a>
-                        <div class="d-flex align-items-center justify-content-between mb-4">
-                            <div class="d-flex align-items-center">
-                                <img class="rounded-circle flex-shrink-0" src="/static/img/user.jpg" alt="" style="width: 45px; height: 45px;">
-                                <div class="ms-3">
-                                    <h6 class="text-primary mb-1">جان دو</h6>
-                                    <small>معلم</small>
-                                </div>
-                            </div>
-                            <span class="bg-primary text-white rounded-pill py-2 px-3" href="">۹۹ دلار</span>
-                        </div>
-                        <div class="row g-1">
-                            <div class="col-4">
-                                <div class="border-top border-3 border-primary pt-2">
-                                    <h6 class="text-primary mb-1">سن:</h6>
-                                    <small>3-5 سال</small>
-                                </div>
-                            </div>
-                         
-                            <div class="col-4">
-                                <div class="border-top border-3 border-success pt-2">
-                                    <h6 class="text-success mb-1">زمان:</h6>
-                                    <small>9-10 صبح</small>
-                                </div>
-                            </div>
-                            <div class="col-4">
-                                <div class="border-top border-3 border-warning pt-2">
-                                    <h6 class="text-warning mb-1">ظرفیت:</h6>
-                                    <small>۳۰ کودک</small>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-             <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s" style="direction: rtl;">
-                <div class="classes-item">
-                    <div class="bg-light rounded-circle w-75 mx-auto p-3">
-                        <img class="img-fluid rounded-circle" src="/static/img/classes-5.jpg" alt="">
-                    </div>
-                    <div class="bg-light rounded p-4 pt-5 mt-n5">
-                        <a class="d-block text-center h3 mt-3 mb-4" href="">مذهب و تاریخ</a>
-                        <div class="d-flex align-items-center justify-content-between mb-4">
-                            <div class="d-flex align-items-center">
-                                <img class="rounded-circle flex-shrink-0" src="/static/static//img/user.jpg" alt="" style="width: 45px; height: 45px;">
-                                <div class="ms-3">
-                                    <h6 class="text-primary mb-1">جان دو</h6>
-                                    <small>معلم</small>
-                                </div>
-                            </div>
-                            <span class="bg-primary text-white rounded-pill py-2 px-3" href="">۹۹ دلار</span>
-                        </div>
-                        <div class="row g-1">
-                            <div class="col-4">
-                                <div class="border-top border-3 border-primary pt-2">
-                                    <h6 class="text-primary mb-1">سن:</h6>
-                                    <small>3-5 سال</small>
-                                </div>
-                            </div>
-                            <div class="col-4">
-                                <div class="border-top border-3 border-success pt-2">
-                                    <h6 class="text-success mb-1">زمان:</h6>
-                                    <small>9-10 صبح</small>
-                                </div>
-                            </div>
-                            <div class="col-4">
-                                <div class="border-top border-3 border-warning pt-2">
-                                    <h6 class="text-warning mb-1">ظرفیت:</h6>
-                                    <small>۳۰ کودک</small>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div> 
-            
-            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s" style="direction: rtl;">
-                <div class="classes-item">
-                    <div class="bg-light rounded-circle w-75 mx-auto p-3">
-                        <img class="img-fluid rounded-circle" src="/static/img/classes-6.jpg" alt="">
-                    </div>
-                    <div class="bg-light rounded p-4 pt-5 mt-n5">
-                        <a class="d-block text-center h3 mt-3 mb-4" href="">دانش عمومی</a>
-                        <div class="d-flex align-items-center justify-content-between mb-4">
-                            <div class="d-flex align-items-center">
-                                <img class="rounded-circle flex-shrink-0" src="/static/img/user.jpg" alt="" style="width: 45px; height: 45px;">
-                                <div class="ms-3">
-                                    <h6 class="text-primary mb-1">جان دو</h6>
-                                    <small>معلم</small>
-                                </div>
-                            </div>
-                            <span class="bg-primary text-white rounded-pill py-2 px-3" href="">۹۹ دلار</span>
-                        </div>
-                        <div class="row g-1">
-                            <div class="col-4">
-                                <div class="border-top border-3 border-primary pt-2">
-                                    <h6 class="text-primary mb-1">سن:</h6>
-                                    <small>3-5 سال</small>
-                                </div>
-                            </div>
-                            <div class="col-4">
-                                <div class="border-top border-3 border-success pt-2">
-                                    <h6 class="text-success mb-1">زمان:</h6>
-                                    <small>9-10 صبح</small>
-                                </div>
-                            </div>
-                            <div class="col-4">
-                                <div class="border-top border-3 border-warning pt-2">
-                                    <h6 class="text-warning mb-1">ظرفیت:</h6>
-                                    <small>۳۰ کودک</small>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
+            {% endfor %}
         </div>
     </div>
 </div>
@@ -435,35 +246,36 @@
                 <div class="col-lg-6 wow fadeIn" data-wow-delay="0.1s">
                     <div class="h-100 d-flex flex-column justify-content-center p-5">
                         <h1 class="mb-4">درخواست وقت ملاقات</h1>
-                        <form>
+                        <form action="{% url 'home:appointment' %}" method="post">
+                            {% csrf_token %}
                             <div class="row g-3">
                                 <div class="col-sm-6">
                                     <div class="form-floating">
-                                        <input type="text" class="form-control border-0" id="gname" placeholder="نام والدین">
+                                        <input type="text" class="form-control border-0" id="gname" placeholder="نام والدین" name="guardian_name">
                                         <label for="gname">نام والدین</label>
                                     </div>
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="form-floating">
-                                        <input type="email" class="form-control border-0" id="gmail" placeholder="ایمیل والدین">
-                                        <label for="gmail">ایمیل والدین</label>
+                                        <input type="text" class="form-control border-0" id="gmail" placeholder="شماره موبایل والدین" name="guardian_phone_number">
+                                        <label for="gmail">شماره موبایل والدین</label>
                                     </div>
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="form-floating">
-                                        <input type="text" class="form-control border-0" id="cname" placeholder="نام فرزند">
+                                        <input type="text" class="form-control border-0" id="cname" placeholder="نام فرزند" name="child_name">
                                         <label for="cname">نام فرزند</label>
                                     </div>
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="form-floating">
-                                        <input type="text" class="form-control border-0" id="cage" placeholder="سن فرزند">
+                                        <input type="text" class="form-control border-0" id="cage" placeholder="سن فرزند" name="child_age">
                                         <label for="cage">سن فرزند</label>
                                     </div>
                                 </div>
                                 <div class="col-12">
                                     <div class="form-floating">
-                                        <textarea class="form-control border-0" placeholder="پیام خود را اینجا بنویسید" id="message" style="height: 100px"></textarea>
+                                        <textarea class="form-control border-0" placeholder="پیام خود را اینجا بنویسید" id="message" style="height: 100px" name="message"></textarea>
                                         <label for="message">پیام</label>
                                     </div>
                                 </div>
@@ -471,6 +283,7 @@
                                     <button class="btn btn-primary w-100 py-3" type="submit">ارسال</button>
                                 </div>
                             </div>
+                           
                         </form>
                     </div>
                 </div>
@@ -483,8 +296,8 @@
         </div>
     </div>
 </div>
-
 <!-- Appointment End -->
+
 
 
 <!-- Team Start -->
@@ -496,12 +309,13 @@
                 سیت. ایپسوم دیام جوستو سد ربوم ورو دلور ورو دولور دوو.</p>
         </div>
         <div class="row g-4">
+        {% for popu in popular %}
             <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
                 <div class="team-item position-relative">
-                    <img class="img-fluid rounded-circle w-75" src="/static/img/team-1.jpg" alt="">
+                    <img class="img-fluid rounded-circle w-75" src="{{popu.teach_image.url}}" alt="">
                     <div class="team-text">
-                        <h3>نام کامل</h3>
-                        <p>سمت</p>
+                        <h3>{{ popu.teach_name }}</h3>
+                        <p>{{ popu.semat }}</p>
                         <div class="d-flex align-items-center">
                             <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-facebook-f"></i></a>
                             <a class="btn btn-square btn-primary  mx-1" href=""><i class="fab fa-twitter"></i></a>
@@ -510,21 +324,22 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+            {% endfor %}
+            {% comment %} <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
                 <div class="team-item position-relative">
                     <img class="img-fluid rounded-circle w-75" src="/static/img/team-2.jpg" alt="">
                     <div class="team-text">
                         <h3>نام کامل</h3>
                         <p>سمت</p>
                         <div class="d-flex align-items-center">
-                            <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-facebook-f"></i></a>
+                            <a class="btn btn-square btn-primary  mx-1" href=""><i class="fab fa-facebook-f"></i></a>
                             <a class="btn btn-square btn-primary  mx-1" href=""><i class="fab fa-twitter"></i></a>
                             <a class="btn btn-square btn-primary  mx-1" href=""><i class="fab fa-instagram"></i></a>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+            </div> {% endcomment %}
+            {% comment %} <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
                 <div class="team-item position-relative">
                     <img class="img-fluid rounded-circle w-75" src="/static/img/team-3.jpg" alt="">
                     <div class="team-text">
@@ -537,11 +352,10 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> {% endcomment %}
         </div>
     </div>
 </div>
-
 <!-- Team End -->
 
 

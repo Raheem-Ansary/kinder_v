@@ -58,6 +58,7 @@ class KindergartenClasses(models.Model):
 
 
 class PopularTeachers(models.Model):
+    teach_image = models.ImageField(verbose_name='تصویر', upload_to='images/poputeach')
     teach_name = models.CharField(max_length=100, verbose_name='نام معلم')
     semat = models.CharField(max_length=100, verbose_name='سمت معلم')
 
@@ -65,3 +66,9 @@ class PopularTeachers(models.Model):
     class Meta:
         verbose_name = 'معلم محبوب'
         verbose_name_plural = 'معلمان محبوب'
+
+
+
+
+
+
