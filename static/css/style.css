@@ -1,4 +1,379 @@
 /********** Template CSS **********/
+
+
+.rtl-content {
+    direction: rtl;
+    text-align: right;
+}
+
+
+.category-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; 
+    justify-content: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; 
+}
+
+.category-item {
+    width: 300px; 
+    border: 1px solid #ddd; 
+    padding: 15px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+}
+
+.category-item img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px; 
+}
+
+.category-item h2 {
+    font-size: 18px;
+    margin: 10px 0;
+}
+
+.category-item p {
+    font-size: 14px;
+    color: #666;
+}
+
+.category-item a {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 8px 15px;
+    background-color: #fe7555;
+    color: white;
+    border-radius: 4px;
+    text-decoration: none;
+}
+
+.category-item a:hover {
+    background-color: #fe7555;
+}
+
+
+
+
+/*###########################*/
+
+
+
+
+/*########## galey #######*/
+.album {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 20px 0;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; 
+  }
+  
+  .responsive-container-block {
+    display: flex;
+    justify-content: space-around;
+    margin: 15px 0;
+  }
+  
+  .img-cont {
+    display: flex;
+    gap: 20px; 
+  }
+  
+  .img {
+    width: 100%;
+    max-width: 400px; 
+    height: auto;
+    border-radius: 12px; 
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); 
+    transition: transform 0.3s ease, box-shadow 0.3s ease; 
+  }
+  
+  .img:hover {
+    transform: scale(1.08); 
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3);
+  }
+  
+  .bg {
+    background-color: #f5f5f5; 
+    padding: 20px;
+    border-radius: 12px;
+  }
+  
+  
+  .btn-to-gallery {
+    display: inline-block;
+    margin: 20px auto;
+    padding: 12px 20px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #fe7555;
+    text-decoration: none;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .btn-to-gallery:hover {
+    background-color: #fe7555;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3);
+  }
+  
+
+  @media (max-width: 768px) {
+    .img-cont {
+      flex-direction: column; 
+      align-items: center;    
+    }
+  
+    .img {
+      max-width: 100%; 
+      margin-bottom: 20px; 
+    }
+  
+    .btn-to-gallery {
+      width: 100%; 
+      text-align: center;
+    }
+  }
+  
+  
+/*########## galey #######*/
+
+.branches-container {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    margin: 20px auto;
+    max-width: 900px;
+    padding: 10px;
+}
+
+.branch-card {
+    display: flex;
+    flex-direction: row;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.2s ease;
+}
+
+.branch-card:hover {
+    transform: scale(1.02);
+}
+
+.branch-image {
+    width: 200px;
+    height: 150px;
+    object-fit: cover;
+}
+
+.branch-info {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.branch-info h3 {
+    font-size: 1.4em;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.branch-info p {
+    font-size: 0.95em;
+    color: #555;
+    margin: 4px 0;
+}
+
+
+@media (max-width: 768px) {
+    .branches-container {
+        padding: 5px;
+    }
+
+    .branch-card {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .branch-image {
+        width: 100%;
+        height: 200px;
+    }
+
+    .branch-info {
+        text-align: center;
+        padding: 10px;
+    }
+}
+
+
+
+/* index branch */
+
+.branches-overview-section {
+    text-align: center;
+    margin: 40px 0;
+    padding: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; 
+}
+
+.branches-overview-section h2 {
+    font-size: 2em;
+    color: #333;
+    margin-bottom: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; 
+}
+
+.branches-overview-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.branch-overview-card {
+    width: 250px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    background-color: #fff;
+    text-align: left;
+}
+
+.branch-overview-card:hover {
+    transform: scale(1.05);
+}
+
+.branch-overview-image {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+}
+
+.branch-overview-info {
+    padding: 15px;
+}
+
+.branch-overview-info h3 {
+    font-size: 1.2em;
+    margin: 10px 0;
+    color: #333;
+}
+
+.branch-overview-info p {
+    font-size: 0.9em;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+.view-more-link {
+    font-size: 0.9em;
+    color: #fe7555;
+    text-decoration: none;
+}
+
+.view-more-link:hover {
+    text-decoration: underline;
+    background-color: #fe7555;
+    border-color: #fe6d4b;
+}
+
+.view-all-branches-button {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 1em;
+    color: #fff;
+    background-color: #fe7555;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.view-all-branches-button:hover {
+    background-color: #fe7555;
+    border-color: #fe6d4b;
+}
+
+
+@media (max-width: 768px) {
+    .branches-overview-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .branch-overview-card {
+        width: 90%;
+    }
+}
+
+/* index branch */
+
+
+/* articles */
+
+
+.articles-section {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; 
+}
+
+.articles-container {
+    display: flex;
+    flex-direction: column; 
+    gap: 20px;
+}
+
+.article-card {
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    text-align: center;
+    padding: 15px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; 
+}
+
+.article-image {
+    width: 100%;
+    height: auto;
+    max-height: 300px;
+    object-fit: cover; 
+    margin-bottom: 10px;
+}
+
+.article-title {
+    font-size: 1.8em;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.article-description {
+    font-size: 1em;
+    color: #555;
+    text-align: justify;
+    line-height: 1.6;
+}
+/* articles */
+
+
+.nav-link.active {
+    color: #FE5D37; 
+    font-weight: bold; 
+    
+}
+
+
+
 :root {
     --primary: #FE5D37;
     --light: #FFF5F3;

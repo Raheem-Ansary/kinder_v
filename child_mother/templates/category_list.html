@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="category-container">
+    {% for category in categories %}
+        <div class="category-item">
+            <img src="{{ category.image.url }}" alt="{{ category.title }}">
+            <h2>{{ category.title }}</h2>
+            <p>{{ category.description|truncatewords:10|safe }}</p> 
+            <a href="{% url 'category_detail' category.slug %}">ادامه مطلب</a>
+        </div>
+    {% endfor %}
+</div>
+
+{% endblock %}

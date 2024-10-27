@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content  %}
+
+
+
+<img src="{{ category.image.url }}" alt="{{ category.title }}">
+<div class="rtl-content">
+    {{ category.description|safe }}
+</div>
+
+{% endblock content  %}
+

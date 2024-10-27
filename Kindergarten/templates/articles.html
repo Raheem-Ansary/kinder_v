@@ -1,0 +1,22 @@
+
+{% extends 'base.html' %}
+
+{% block content  %}
+
+<section class="articles-section">
+    <div class="articles-container">
+        {% for article in articles %}
+        <div class="article-card">
+                <h2 class="article-title">{{ article.title }}</h2>
+                <img src="{{ article.image.url }}" alt="{{ article.title }}" class="article-image">
+                <div class="article-content">
+                    <div class="article-description">
+                        {{ article.content|safe }}
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</section>
+
+{% endblock content  %}

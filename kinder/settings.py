@@ -12,6 +12,8 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 
 from pathlib import Path
 
+import os
+
 import pymysql
 
 pymysql.install_as_MySQLdb()
@@ -41,15 +43,93 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    
-
+    'django_ckeditor_5',
+  
 
     #internal app
 
     'home',
     'acounts',
     'site_setting',
+    'child_mother',
+    'kindergartenBranch',
+    'Kindergarten',
 ]
+
+
+
+
+
+CKEDITOR_5_CONFIGS = {
+    'default': {
+        'toolbar':  [
+            'heading', '|', 'bold', 'italic', 'underline', 'strikethrough', 'link',
+            'bulletedList', 'numberedList', 'blockQuote', 'imageUpload', '|',
+            'insertTable', 'mediaEmbed', '|', 'outdent', 'indent', '|', 'removeFormat',
+            'code', 'subscript', 'superscript', 'highlight', '|', 'fontSize',
+            'fontFamily', 'fontColor', 'fontBackgroundColor', 'alignment', '|',
+            'undo', 'redo'
+            
+        ],
+        'language': 'fa',  
+        'height': 300,
+        'width': '100%',
+        'alignment': 'right',  
+
+    },
+
+    
+
+    'extended': {
+        'toolbar': [
+            'heading', '|', 'outdent', 'indent', '|', 'bold', 'italic', 'underline', 'strikethrough',
+            'link', 'code', 'subscript', 'superscript', 'highlight', '|', 'insertImage',
+            'bulletedList', 'numberedList', 'blockQuote', '|', 'fontSize', 'fontFamily',
+            'fontColor', 'fontBackgroundColor', 'removeFormat', 'insertTable',
+        ],
+
+     'image': {
+            'resizeOptions': [
+                {
+                    'name': 'resizeImage:original',
+                    'value': None, 
+                    'label': 'Original'
+                },
+                {
+                    'name': 'resizeImage:custom',
+                    'label': 'Custom',
+                    'value': 'custom'
+                },
+                {
+                    'name': 'resizeImage:40',
+                    'value': '40',
+                    'label': '40%'
+                },
+                {
+                    'name': 'resizeImage:60',
+                    'value': '60',
+                    'label': '60%'
+                }
+            ],
+            'toolbar': [
+                'imageTextAlternative', '|', 'imageStyle:alignLeft', 'imageStyle:alignRight',
+                'imageStyle:alignCenter', 'imageStyle:side', '|'
+            ],
+        },
+    },
+        'heading': {
+            'options': [
+                { 'model': 'paragraph', 'title': 'Paragraph', 'class': 'ck-heading_paragraph' },
+                { 'model': 'heading1', 'view': 'h1', 'title': 'Heading 1', 'class': 'ck-heading_heading1' },
+                { 'model': 'heading2', 'view': 'h2', 'title': 'Heading 2', 'class': 'ck-heading_heading2' },
+                { 'model': 'heading3', 'view': 'h3', 'title': 'Heading 3', 'class': 'ck-heading_heading3' },
+                { 'model': 'heading4', 'view': 'h4', 'title': 'Heading 4', 'class': 'ck-heading_heading4' },
+                { 'model': 'heading5', 'view': 'h5', 'title': 'Heading 5', 'class': 'ck-heading_heading5' }
+
+            ]
+        },
+    }
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -85,16 +165,7 @@ WSGI_APPLICATION = 'kinder.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
-# DATABASES = {
-#     "default": {
-#         "ENGINE": "django.db.backends.mysql",
-#         "HOST": "127.0.0.1",
-#         "NAME": "kinder_db",
-#         "USER": "raheem",
-#         "PASSWORD": "Zehnepoya@1234#",
-        
-#     }
-# }
+
 
 
 
@@ -103,7 +174,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'kinder_db',
         'USER': 'root',
-        'PASSWORD': 'Zehnepoya123@',
+        'PASSWORD': 'Zehnepoya@123',
         'HOST': 'localhost',
         'PORT': '3306',
          'OPTIONS': {
@@ -151,13 +222,21 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-
+CKEDITOR_UPLOAD_PATH = "uploads/"
 MEDIA_ROOT = BASE_DIR / 'uploads'
 MEDIA_URL = '/medias/'
 
 STATICFILES_DIRS = [
     BASE_DIR / 'static'
 ]
+
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+
+
+
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field

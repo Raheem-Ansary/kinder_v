@@ -43,7 +43,26 @@
 </div>
 <!-- Carousel End --> 
 
+<div class="album">
+    <div class="text-center">
+        <a href="#" class="btn-to-gallery">مشاهده کامل گالری</a>
+    </div>
+    <div class="responsive-container-block bg">
+        <div class="responsive-container-block img-cont">
+            {% for image in gallery_items %}
+                <img class="img" src="{{ image.image.url }}" alt="Gallery Image">
+                {% if forloop.counter|divisibleby:3 and not forloop.last %}
+                    </div><div class="responsive-container-block img-cont">
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+    
+    
+</div>
 
+
+=
 
 <!-- Facilities Start -->
 <div class="container-xxl py-5">
@@ -110,6 +129,23 @@
 </div>
 <!-- Facilities End -->
 
+
+<section class="branches-overview-section">
+    <h2>شعبات منتخب ما</h2>
+    <div class="branches-overview-container">
+      {% for branch in branches %}
+        <div class="branch-overview-card">
+          <img src="{{ branch.image.url }}" alt="{{ branch.name }}" class="branch-overview-image">
+          <div class="branch-overview-info">
+            <h3>{{ branch.name }}</h3>
+            <p>{{ branch.address|truncatewords:5 }}</p>
+            <a href="{% url 'branches_view' %}" class="view-more-link">مشاهده بیشتر</a>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+    <a href="{% url 'branches_view' %}" class="view-all-branches-button">مشاهده همه شعبات</a>
+  </section>
 
 <!-- About Start -->
 <div class="container-xxl py-5">
@@ -206,7 +242,7 @@
                                     <small>معلم</small>
                                 </div>
                             </div>
-                            <span class="bg-primary text-white rounded-pill py-2 px-3" href="">۹۹ دلار</span>
+                            {% comment %} <span class="bg-primary text-white rounded-pill py-2 px-3" href="">۹۹ دلار</span> {% endcomment %}
                         </div>
                         <div class="row g-1">
                             <div class="col-4">

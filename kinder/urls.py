@@ -22,6 +22,10 @@ from django.conf import settings
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('home.urls', namespace='home')),
+    path('child_mother/', include('child_mother.urls')),
+    path('kindergartenBranch/', include('kindergartenBranch.urls')),
+    path('Kindergarten', include('Kindergarten.urls')),
+    path("ckeditor5/", include('django_ckeditor_5.urls')),
 ]
 
 urlpatterns = urlpatterns + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
