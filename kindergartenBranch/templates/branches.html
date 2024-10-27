@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+<div class="branches-container">
+  {% for branch in branches %}
+    <div class="branch-card">
+      <img src="{{ branch.image.url }}" alt="{{ branch.name }}" class="branch-image">
+      <div class="branch-info">
+        <h3>{{ branch.name }}</h3>
+        <p><strong>آدرس:</strong> {{ branch.address }}</p>
+        <p><strong>تلفن:</strong> {{ branch.phone_number }}</p>
+        <p>{{ branch.description }}</p>
+      </div>
+    </div>
+  {% endfor %}
+</div>
+
+
+{% endblock %}

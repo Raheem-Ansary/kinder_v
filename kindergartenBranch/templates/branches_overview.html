@@ -1,0 +1,11 @@
+<h1>شعبات ما</h1>
+<div class="branches-container">
+    {% for branch in branches %}
+        <div class="branch">
+            <img src="{{ branch.image.url }}" alt="{{ branch.name }}">
+            <h3>{{ branch.name }}</h3>
+            <p>{{ branch.address }}</p>
+            <p><strong>Phone:</strong> {{ branch.phone_number }}</p>
+        </div>
+    {% endfor %}
+</div>

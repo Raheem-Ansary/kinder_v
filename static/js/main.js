@@ -81,16 +81,4 @@
     
 })(jQuery);
 
-// $(document).ready(function(){
-//     console.log('hello')
-//     $(".header-carousel").owlCarousel({
-//         items: 1,
-//         loop: true,
-//         autoplay: true,
-//         autoplayTimeout: 3000, // زمان انتقال اتوماتیک به عکس بعدی به میلی‌ثانیه
-//         autoplayHoverPause: true // متوقف شدن اسلایدر هنگام روی آن موس
-//     });
-// });
-
-
 

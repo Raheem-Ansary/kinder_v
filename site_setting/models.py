@@ -2,6 +2,18 @@ from django.db import models
 
 
 
+
+
+
+class MiniGallery(models.Model):
+    image = models.ImageField(upload_to='gallery_images/')
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"Image {self.id}"
+    
+    
+
 class Slider(models.Model):
     title = models.CharField(max_length=200, verbose_name='عنوان')
     description = models.CharField(max_length=4000, verbose_name='توضیحات اسلایدر')

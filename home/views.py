@@ -3,8 +3,9 @@ from django.shortcuts import redirect
 from django.views import View
 from django.contrib import messages
 from django.views.generic.base import TemplateView
-from site_setting.models import Slider, FoterGaley, MiddleBaner, KindergartenClasses, PopularTeachers
+from site_setting.models import Slider, MiniGallery, MiddleBaner, KindergartenClasses, PopularTeachers
 from .forms import AppointmentRequestForm
+from kindergartenBranch.models import KindergartenBranch
 
 
 
@@ -28,24 +29,23 @@ def appointment(request):
 
 
 def get_context_data(request):
-
-    template_name = 'home/index.html'
-    
     sliders = Slider.objects.filter(is_active=True)
     banners = MiddleBaner.objects.all()
     classes = KindergartenClasses.objects.all()
     popular = PopularTeachers.objects.all()
-
+    mini_gallery_images = MiniGallery.objects.all()
+    
+   
+    featured_branches = KindergartenBranch.objects.filter(is_featured=True)[:4]
 
     context = {
-        
-    'sliders': sliders,
-    'banners': banners,
-    'classes': classes,
-    'popular': popular    
-        
+        'sliders': sliders,
+        'banners': banners,
+        'classes': classes,
+        'popular': popular,
+        'gallery_items': mini_gallery_images,
+        'branches': featured_branches,
     }
-        
-    
-    return render(request, template_name, context)
+
+    return render(request, 'home/index.html', context)
 
